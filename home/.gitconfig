@@ -1,0 +1,12 @@
+[user]
+	name = Matt Butcher
+	email = mattbutcher@google.com
+[color]
+    ui = true
+[core]
+	editor = vim -f
+[alias]
+  lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday --author mattbutcher
+  st = status -sb
+  ci = commit --verbose
