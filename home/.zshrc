@@ -98,3 +98,7 @@ function vdir {
 function coodoc {
   godoc github.com/Masterminds/cookoo/$1 $2
 }
+
+if [[ -e ~/.mpb_env ]]; then
+  source ~/.mpb_env
+fi
