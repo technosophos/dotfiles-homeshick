@@ -1,4 +1,11 @@
 # Cookoo snippets
+snippet testcoo
+	reg, router, cxt := cookoo.Cookoo()
+
+	reg.Route("test", "Test route").
+		Does(${1}, "res")
+	
+	router.HandleRequest("test", cxt, true)
 snippet ccmd
 	func ${1:MyCommand}(c cookoo.Context, p *cookoo.Params) (interface{}, cookoo.Interrupt) {
 		${2}
