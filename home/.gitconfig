@@ -11,3 +11,4 @@
   st = status -sb
   ci = commit --verbose
   append = commit -av --amend --no-edit
+  pullup = pull --rebase upstream master

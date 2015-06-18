@@ -9,7 +9,28 @@ snippet testcoo
 	if err != nil {
 		t.Error(err)
 	}
+
+snippet croute
+	cookoo.Route{
+		Name: "${1}",
+		Help: "${2}",
+		Does: cookoo.Tasks{
+			cookoo.Cmd{
+				Name: "${3}",
+				Fn: ${4},
+				// Using: []cookoo.Param{
+				//	{Name: ""}
+				// }
+			},
+		},
+	}
 snippet ccmd
+	// $1
+	//
+	// Params:
+	//
+	// Returns:
+	//
 	func ${1:MyCommand}(c cookoo.Context, p *cookoo.Params) (interface{}, cookoo.Interrupt) {
 		${2}
 	}
