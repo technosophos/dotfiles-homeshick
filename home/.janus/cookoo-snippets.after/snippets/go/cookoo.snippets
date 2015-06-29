@@ -44,6 +44,8 @@ snippet impcli
 	"github.com/Masterminds/cookoo/cli"
 snippet logf
 	c.Logf("${1:debug}", "${2}")
+snippet clog
+	c.Logf("${1:info}", "${2}")
 snippet reqval
 	ok, missing := p.RequiresValue(${1})
 	if !ok {
