@@ -99,6 +99,12 @@ function coodoc {
   godoc github.com/Masterminds/cookoo/$1 $2
 }
 
+function rebuild-deis {
+  cd $DEIS
+  vagrant-destroy && make dev-cluster deploy
+  cd -
+}
+
 if [[ -e ~/.mpb_env ]]; then
   source ~/.mpb_env
 fi
