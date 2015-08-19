@@ -1,7 +1,48 @@
 # Cookoo snippets
+snippet testcoo
+	reg, router, cxt := cookoo.Cookoo()
+
+	reg.Route("test", "Test route").
+		Does(${1}, "res")
+
+	err := router.HandleRequest("test", cxt, true)
+	if err != nil {
+		t.Error(err)
+	}
+
+snippet cookoocookoo
+	reg, router, c := cookoo.Cookoo()
+snippet croute
+	cookoo.Route{
+		Name: "${1}",
+		Help: "${2}",
+		Does: cookoo.Tasks{
+			cookoo.Cmd{
+				Name: "${3}",
+				Fn: ${4},
+				// Using: []cookoo.Param{
+				//	{Name: ""},
+				// },
+			},
+		},
+	}
+snippet cadd
+	cookoo.Cmd{
+		Name: "${1}",
+		Fn: ${2},
+		// Using: []cookoo.Param{
+		//	{Name: "", From:"", DefaultValue: ""},
+		// },
+	},
 snippet ccmd
+	// $1 ${2}
+	//
+	// Params:
+	//
+	// Returns:
+	//
 	func ${1:MyCommand}(c cookoo.Context, p *cookoo.Params) (interface{}, cookoo.Interrupt) {
-		${2}
+		${3}
 	}
 snippet impcoo
 	"github.com/Masterminds/cookoo"
@@ -12,7 +53,17 @@ snippet impdb
 snippet impcli
 	"github.com/Masterminds/cookoo/cli"
 snippet logf
-	c.Logf("${1:debug}", "${2}")
+	log.Infof(c, "${1}")
+snippet clog
+	log.Infof(c, "${1}")
+snippet cerr
+	log.Errf(c, "${1}")
+snippet cwarn
+	log.Warnf(c, "${1}")
+snippet cdebug
+	if log.Debugging() {
+		log.Debugf(c, "${1}")
+	}
 snippet reqval
 	ok, missing := p.RequiresValue(${1})
 	if !ok {

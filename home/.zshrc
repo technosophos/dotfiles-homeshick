@@ -65,6 +65,10 @@ if [[ -e "$hs_bin" ]]; then
 fi
 source $ZSH/oh-my-zsh.sh
 
+# DEIS
+export DEIS=/Users/mattbutcher/Code/Go/src/github.com/deis/deis
+export MYDEIS=http://deis.local3.deisapp.com
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -97,6 +101,25 @@ function vdir {
 
 function coodoc {
   godoc github.com/Masterminds/cookoo/$1 $2
+}
+
+function rebuild-deis {
+  cd $DEIS
+  eval $(docker-machine env deis)
+  export DEV_REGISTRY=$(docker-machine ip deis):5000
+  vagrant destroy -f && make dev-cluster deploy
+  cd -
+}
+
+function clock-out {
+  cd $DEIS
+  vagrant destroy -f && docker-machine stop deis
+  cd -
+}
+
+function clock-in {
+  docker-machine start deis
+  rebuild-deis
 }
 
 if [[ -e ~/.mpb_env ]]; then
