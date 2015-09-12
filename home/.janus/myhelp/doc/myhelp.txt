@@ -43,6 +43,8 @@ CONTENTS
    - vab : select a "block" (works differently in different langs)
    - vat : select a <tag> and its contents (use i instead of a for just
      contents)
+   - gq: Reformat all lines to wrap at 80 cols (or whatever your col
+     width is).
 
 ===============================================================================
 3. Insert Mode                                         *myhelp-insert*

@@ -55,6 +55,7 @@ if [[ "" = "${GOPATH}" ]]; then
   export GOPATH=$HOME/Code/Go
 fi
 export CODE=$HOME/Code
+export GOGH=$GOPATH/src/github.com
 
 export PATH="$GOPATH/bin:$(brew --prefix homebrew/php/php56)/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
