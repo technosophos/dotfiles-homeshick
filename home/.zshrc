@@ -58,6 +58,7 @@ export CODE=$HOME/Code
 export GOGH=$GOPATH/src/github.com
 
 export PATH="$GOPATH/bin:$(brew --prefix homebrew/php/php56)/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export GO15VENDOREXPERIMENT=1
 # export MANPATH="/usr/local/man:$MANPATH"
 
 hs_bin="$HOME/.homesick/repos/homeshick/homeshick.sh"
@@ -67,8 +68,24 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 # DEIS
-export DEIS=/Users/mattbutcher/Code/Go/src/github.com/deis/deis
+export DEIS=/Users/mattbutcher/Code/Go/src/github.com/deis
 export MYDEIS=http://deis.local3.deisapp.com
+export HELM=/Users/mattbutcher/Code/Go/src/github.com/helm
+export HELM_HOME=/Users/mattbutcher/Code/helm_home
+
+# Kubernets k8s
+export KUBERNETES_PROVIDER=vagrant
+export KUBE=$GOPATH/src/github.com/kubernetes/kubernetes
+export KUBERNETES_MINION_MEMORY=2048
+export KUBE_CONFIG_FILE=config-mpb.sh
+export KUBE_ENABLE_EXPERIMENTAL_API=true
+
+# Kube-Solo support
+export KUBECONFIG=/Users/mattbutcher/kube-solo/kube/kubeconfig:/Users/mattbutcher/.kube/config
+
+# Docker Machine (is lame)
+eval $(docker-machine env deis)
+export DEV_REGISTRY=$(docker-machine ip deis)
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -94,6 +111,13 @@ export MYDEIS=http://deis.local3.deisapp.com
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias k="kubectl"
+alias kj="kubectl -o json"
+alias ky="kubectl -o yaml"
+alias kd="kubectl --namespace=deis"
+alias kdj="kubectl --namespace=deis -o json"
+alias kdy="kubectl --namespace=deis -o yaml"
 
 # Simple function to open the current working directory in mvim.
 function vdir {

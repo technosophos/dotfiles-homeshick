@@ -1,5 +1,11 @@
 snippet sugar
 	"bitbucket.org/mobiplug/sugarmill/${1:}"
+snippet kkind
+	// ${1:Kind} decodes a manifest into a $1.
+	func (m *Object) $1() (*${2:v1}.$1, error) {
+		o := new($2.$1)
+		return o, m.Object(o)
+	}
 snippet imprvt
 	"bitbucket.org/mobiplug/rvt"
 snippet luge

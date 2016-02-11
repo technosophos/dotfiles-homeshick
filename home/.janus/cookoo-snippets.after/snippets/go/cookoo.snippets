@@ -5,11 +5,21 @@ snippet testcoo
 	reg.Route("test", "Test route").
 		Does(${1}, "res")
 
-	err := router.HandleRequest("test", cxt, true)
-	if err != nil {
+	if err := router.HandleRequest("test", cxt, true); err != nil {
 		t.Error(err)
 	}
 
+snippet cootest
+	func Test${1:Foo}(t *testing.T) {
+		reg, router, cxt := cookoo.Cookoo()
+
+		reg.Route("test", "Test route").
+			Does(${1}, "res")
+
+		if err := router.HandleRequest("test", cxt, true); err != nil {
+			t.Error(err)
+		}
+	}
 snippet cookoocookoo
 	reg, router, c := cookoo.Cookoo()
 snippet croute

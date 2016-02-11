@@ -12,3 +12,6 @@
   ci = commit --verbose
   append = commit -av --amend --no-edit
   pullup = pull --rebase upstream master
+  prom = pull --rebase origin master
+[merge]
+	conflictstyle = diff3
