@@ -1,6 +1,8 @@
 myhelp	myhelp.txt	/*myhelp*
+myhelp-bufwin	myhelp.txt	/*myhelp-bufwin*
 myhelp-insert	myhelp.txt	/*myhelp-insert*
 myhelp-normal	myhelp.txt	/*myhelp-normal*
 myhelp-notes	myhelp.txt	/*myhelp-notes*
+myhelp-settings	myhelp.txt	/*myhelp-settings*
 myhelp-visual	myhelp.txt	/*myhelp-visual*
 myhelp.txt	myhelp.txt	/*myhelp.txt*

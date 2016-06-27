@@ -46,7 +46,7 @@ ZSH_THEME="technosophos"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew)
+plugins=(git brew jump)
 
 # User configuration
 
@@ -119,6 +119,13 @@ alias kd="kubectl --namespace=deis"
 alias kdj="kubectl --namespace=deis -o json"
 alias kdy="kubectl --namespace=deis -o yaml"
 
+alias kh="kubectl --namespace=helm"
+alias khy="kubectl --namespace=helm -o yaml"
+
+alias dud='du -d 1 -h'
+alias duf='du -sh *'
+alias hgrep="fc -El 100 | grep"
+
 # Simple function to open the current working directory in mvim.
 function vdir {
   mvim ${PWD}
@@ -150,3 +157,9 @@ function clock-in {
 if [[ -e ~/.mpb_env ]]; then
   source ~/.mpb_env
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/mattbutcher/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/Users/mattbutcher/google-cloud-sdk/completion.zsh.inc'

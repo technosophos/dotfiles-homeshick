@@ -27,6 +27,11 @@ set cc=80
 " NO INSERTING LINE BREAKS AT 80 CHARS
 set textwidth=0
 
+" Use ag instead of ack if we can.
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 "" ==== LANGUAGE SPECIFIC ==============================="
 
 au BufRead,BufNewFile *.thrift set filetype=thrift
@@ -35,6 +40,8 @@ au BufRead,BufNewFile *.thrift set filetype=thrift
 
 " Support for Go tab indents.
 autocmd FileType go setlocal shiftwidth=4 tabstop=4 noexpandtab
+" Protobuf should use tabs for indent.
+autocmd FileType proto setlocal shiftwidth=4 tabstop=4 noexpandtab
 
 " ================================================================================================================
 "

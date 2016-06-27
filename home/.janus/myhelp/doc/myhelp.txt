@@ -9,8 +9,10 @@ CONTENTS
 	1. Normal Mode.......................................|myhelp-normal|
 	2. Visual Mode.......................................|myhelp-visual|
 	3. Insert Mode.......................................|myhelp-insert|
-	4. Notes.............................................|myhelp-notes|
-	5. Rebuilding this file
+	4. Buffers and Windows...............................|myhelp-bufwin|
+	5. Useful Commands and Settings......................|myhelp-settings|
+	6. Notes.............................................|myhelp-notes|
+	7. Rebuilding this file
 
 ===============================================================================
 1. Normal Mode                                         *myhelp-normal*
@@ -59,7 +61,21 @@ CONTENTS
 
 
 ===============================================================================
-4. NOTES                                               *myhelp-notes*
+4. Buffers and Windows                                 *myhelp-bufwin*
+
+   - <leader>rt Toggles TagBar
+
+===============================================================================
+5. Useful Commands and Settings                        *myhelp-settings*
+
+Tabs:
+
+	:noexpandtab turns off tab expansion to spaces
+	:ToggleTagbar toggles tagbar
+
+
+===============================================================================
+6. NOTES                                               *myhelp-notes*
 
 Janus: https://github.com/carlhuda/janus
 
@@ -67,7 +83,7 @@ Why disable supertab? Because it's really annoying when you're writing in a
 language that uses tabs instead of spaces.
 
 ===============================================================================
-5. Rebuilding this file.
+7. Rebuilding this file.
 
 This file is loaded as a plugin. If you ever need to rebuild the tags file, run
 this command: >

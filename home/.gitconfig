@@ -13,5 +13,6 @@
   append = commit -av --amend --no-edit
   pullup = pull --rebase upstream master
   prom = pull --rebase origin master
+  delete-merged = "!git checkout master && git branch --merged | grep -v master | xargs git branch -d"
 [merge]
 	conflictstyle = diff3
