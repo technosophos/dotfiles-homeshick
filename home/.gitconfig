@@ -15,7 +15,7 @@
   pullup = pull --rebase upstream master
   prom = pull --rebase origin master
   delete-merged = "!git checkout master && git branch --merged | grep -v master | xargs git branch -d"
-  release-notes = "!git log --pretty=format:'%s (%cr) <%an> %d' | grep -v 'Merge'"
+  release-notes = "!git log --no-merges --pretty=format:'%s (%cr) <%an> %d'"
 [merge]
 	conflictstyle = diff3
 [commit]
