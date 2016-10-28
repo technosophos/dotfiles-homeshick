@@ -1,12 +1,13 @@
 [user]
 	name = Matt Butcher
-	email = mbutcher@engineyard.com
+	email = technosophos@gmail.com
+	signingkey = 7D911B60
 [color]
     ui = true
 [core]
 	editor = vim -f
 [alias]
-  lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%d'
   standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday --author mattbutcher
   st = status -sb
   ci = commit --verbose
@@ -14,5 +15,8 @@
   pullup = pull --rebase upstream master
   prom = pull --rebase origin master
   delete-merged = "!git checkout master && git branch --merged | grep -v master | xargs git branch -d"
+  release-notes = "!git log --pretty=format:'%s (%cr) <%an> %d' | grep -v 'Merge'"
 [merge]
 	conflictstyle = diff3
+[commit]
+	gpgsign = true

@@ -46,9 +46,13 @@ ZSH_THEME="technosophos"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew jump)
+plugins=(git jump)
 
 # User configuration
+# Base16 Shell
+BASE16_THEME="base16-ashes"
+BASE16_SHELL="$HOME/.config/base16-shell/scripts/$BASE16_THEME.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # Glide support.
 if [[ "" = "${GOPATH}" ]]; then
@@ -70,7 +74,7 @@ source $ZSH/oh-my-zsh.sh
 # DEIS
 export DEIS=/Users/mattbutcher/Code/Go/src/github.com/deis
 export MYDEIS=http://deis.local3.deisapp.com
-export HELM=/Users/mattbutcher/Code/Go/src/github.com/helm
+export HELM=/Users/mattbutcher/Code/Go/src/k8s.io/helm
 export HELM_HOME=/Users/mattbutcher/Code/helm_home
 
 # Kubernets k8s
@@ -84,8 +88,8 @@ export KUBE_ENABLE_EXPERIMENTAL_API=true
 export KUBECONFIG=/Users/mattbutcher/kube-solo/kube/kubeconfig:/Users/mattbutcher/.kube/config
 
 # Docker Machine (is lame)
-eval $(docker-machine env deis)
-export DEV_REGISTRY=$(docker-machine ip deis)
+eval $(docker-machine env helm)
+#export DEV_REGISTRY=$(docker-machine ip helm)
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -96,6 +100,9 @@ export DEV_REGISTRY=$(docker-machine ip deis)
 # else
 #   export EDITOR='mvim'
 # fi
+
+# Use neovim
+export EDITOR='nvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -126,40 +133,71 @@ alias dud='du -d 1 -h'
 alias duf='du -sh *'
 alias hgrep="fc -El 100 | grep"
 
-# Simple function to open the current working directory in mvim.
+alias nvimedit='nvim $HOME/.config/nvim'
+
+# Homeschick
+alias hscd='homeshick cd dotfiles-homeshick'
+alias hstrack='homeshick track dotfiles'
+
+# Simple function to open the current working directory in nvim.
 function vdir {
-  mvim ${PWD}
+  ${EDITOR} ${PWD}
 }
 
 function coodoc {
   godoc github.com/Masterminds/cookoo/$1 $2
 }
 
-function rebuild-deis {
-  cd $DEIS
-  eval $(docker-machine env deis)
-  export DEV_REGISTRY=$(docker-machine ip deis):5000
-  vagrant destroy -f && make dev-cluster deploy
-  cd -
+function helmdoc {
+  godoc k8s.io/helm/$1 $2
 }
 
-function clock-out {
-  cd $DEIS
-  vagrant destroy -f && docker-machine stop deis
+function helm-out {
+  cd $HELM
+  scripts/local-cluster.sh stop
   cd -
+  docker-machine stop helm
 }
 
-function clock-in {
-  docker-machine start deis
-  rebuild-deis
+function helm-in {
+  docker-machine start helm
+  cd $HELM
+  scripts/local-cluster restart
+  cd -
+  eval $(docker-machine env helm)
 }
 
 if [[ -e ~/.mpb_env ]]; then
   source ~/.mpb_env
 fi
 
+# Set the colorscheme.
+function colorscheme {
+  BASE16_SHELL="$HOME/.config/base16-shell/scripts/$1.sh"
+  [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+}
+
+# List all of the colorschemes
+function colorschemes {
+  ls $HOME/.config/base16-shell/scripts/ | awk '{sub(/\.sh/, "")}; 1'
+}
+
+# Cycle through all of the colorschemes
+function showcolorschemes {
+  for i in $(colorschemes); do
+    colorscheme $i
+    echo -n "\rThis is $i                                  "
+    sleep 2
+  done
+  echo "Resetting"
+  . $BASE16_SHELL
+}
+
 # The next line updates PATH for the Google Cloud SDK.
 source '/Users/mattbutcher/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables shell command completion for gcloud.
 source '/Users/mattbutcher/google-cloud-sdk/completion.zsh.inc'
+
+# Update PATH for new Helm
+export PATH=$HELM/bin:$PATH
