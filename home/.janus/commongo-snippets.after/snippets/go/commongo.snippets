@@ -1,5 +1,0 @@
-# Common Go things, done as snippets
-snippet utest
-	func Test${1:`substitute(substitute(Filename(), "^.", "\\U\\0", ""), "_test", "", "")`}(t *testing.T) {
-		${2}
-	}
