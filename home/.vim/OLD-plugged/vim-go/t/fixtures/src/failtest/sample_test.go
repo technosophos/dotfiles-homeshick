@@ -1,1 +1,0 @@
-/Users/mattbutcher/.homesick/repos/dotfiles-homeshick/home/.vim/plugged/vim-go/t/fixtures/src/failtest/sample_test.go

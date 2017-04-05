@@ -1,1 +1,0 @@
-/Users/mattbutcher/.homesick/repos/dotfiles-homeshick/home/.vim/plugged/tlib_vim/samples/tlib/input/tlib_input_list.vim

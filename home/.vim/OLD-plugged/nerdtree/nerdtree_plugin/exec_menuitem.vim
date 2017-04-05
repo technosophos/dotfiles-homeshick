@@ -1,1 +1,0 @@
-/Users/mattbutcher/.homesick/repos/dotfiles-homeshick/home/.vim/plugged/nerdtree/nerdtree_plugin/exec_menuitem.vim
