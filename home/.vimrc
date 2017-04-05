@@ -30,6 +30,7 @@ Plug 'chriskempson/base16-vim'
 " Syntax
 " TODO: Figure out if there is a good 'for' line for this.
 Plug 'aklt/plantuml-syntax', {'for': ['pu', 'plantuml', 'md', 'mdown', 'uml']}
+Plug 'keith/swift.vim', {'for': ['swift']}
 
 " Snippets
 Plug 'tomtom/tlib_vim'
@@ -40,6 +41,10 @@ Plug 'garbas/vim-snipmate'
 " Personal Plugins
 Plug 'technosophos/vim-myhelp'
 Plug '~/Code/vim-kubernetes-snippets'
+
+" Kubernetes
+Plug 'andrewstuart/vim-kubernetes'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 if has('nvim')
 	" nvim
@@ -175,9 +180,9 @@ map <silent> <leader>n :NERDTreeToggle<CR> :NERDTreeMirror<CR>
 
 " NERDCommenter
 " Map CTRL-D to toggling comments on and off.
-map <D-/> :NERDCommenterToggle<CR>
-map <M-/> :NERDCommenterToggle<CR>
-let g:NERDDefaultAlign = 'left' " Align comments on left side instead of indenting.
+map <D-/> :NERDComToggleComment<CR>
+map <M-/> :NERDComToggleComment<CR>
+" let g:NERDDefaultAlign = 'left' " Align comments on left side instead of indenting.
 let g:NERDCompactSexyComs = 1   " How could I not?
 
 " SnipMate settings

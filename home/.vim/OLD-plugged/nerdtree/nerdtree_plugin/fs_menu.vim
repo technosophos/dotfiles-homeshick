@@ -1,0 +1,1 @@
+/Users/mattbutcher/.homesick/repos/dotfiles-homeshick/home/.vim/plugged/nerdtree/nerdtree_plugin/fs_menu.vim

@@ -1,0 +1,1 @@
+/Users/mattbutcher/.homesick/repos/dotfiles-homeshick/home/.vim/plugged/vim-snipmate/ftplugin/html_snip_helper.vim

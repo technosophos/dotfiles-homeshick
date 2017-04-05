@@ -75,7 +75,7 @@ source $ZSH/oh-my-zsh.sh
 export DEIS=/Users/mattbutcher/Code/Go/src/github.com/deis
 export MYDEIS=http://deis.local3.deisapp.com
 export HELM=/Users/mattbutcher/Code/Go/src/k8s.io/helm
-export HELM_HOME=/Users/mattbutcher/Code/helm_home
+export HELM_HOME=$HOME/HelmHome
 
 # Kubernets k8s
 export KUBERNETES_PROVIDER=vagrant
@@ -101,8 +101,11 @@ eval $(docker-machine env helm)
 #   export EDITOR='mvim'
 # fi
 
-# Use neovim
-export EDITOR='nvim'
+# Use mvim
+export EDITOR='mvim'
+
+# For ghi
+export GITHUB_USER='technosophos'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -201,3 +204,9 @@ source '/Users/mattbutcher/google-cloud-sdk/completion.zsh.inc'
 
 # Update PATH for new Helm
 export PATH=$HELM/bin:$PATH
+
+# Enable fuzzy finder
+#_fzf_compgen_path() {
+#  ag -g "" "$1"
+#}
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
