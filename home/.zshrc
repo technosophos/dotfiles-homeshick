@@ -85,10 +85,12 @@ export KUBE_CONFIG_FILE=config-mpb.sh
 export KUBE_ENABLE_EXPERIMENTAL_API=true
 
 # Kube-Solo support
-export KUBECONFIG=/Users/mattbutcher/kube-solo/kube/kubeconfig:/Users/mattbutcher/.kube/config
+# export KUBECONFIG=/Users/mattbutcher/kube-solo/kube/kubeconfig:/Users/mattbutcher/.kube/config
+
+export KUBECONFIG=/Users/mattbutcher/.kube/config
 
 # Docker Machine (is lame)
-eval $(docker-machine env helm)
+#eval $(docker-machine env helm)
 #export DEV_REGISTRY=$(docker-machine ip helm)
 
 # You may need to manually set your language environment
