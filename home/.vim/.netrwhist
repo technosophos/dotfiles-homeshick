@@ -1,11 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Users/mattbutcher/Code/Go/src/k8s.io/helm'
-let g:netrw_dirhist_2='/Users/mattbutcher/Code/Go/src/k8s.io/helm/scripts'
-let g:netrw_dirhist_3='/Users/mattbutcher/Code/Go/src/k8s.io/helm'
-let g:netrw_dirhist_4='/Users/mattbutcher/Code/Go/src/k8s.io/helm/pkg'
-let g:netrw_dirhist_5='/Users/mattbutcher/Code/Go/src/k8s.io/helm'
-let g:netrw_dirhist_6='/Users/mattbutcher/Code/Go/src/k8s.io/helm/cmd'
-let g:netrw_dirhist_7='/Users/mattbutcher/Code/Go/src/k8s.io/helm'
-let g:netrw_dirhist_8='/Users/mattbutcher/Code/Go/src/k8s.io/helm/pkg'
-let g:netrw_dirhist_9='/Users/mattbutcher/Code/Go/src/k8s.io/helm/pkg/repo'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/Users/technosophos/Code/Go/src/github.com/Azure/brigade/pkg'
+let g:netrw_dirhist_2='/Users/technosophos/Code/Go/src/github.com/Azure/brigade/pkg/api'

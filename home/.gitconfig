@@ -1,11 +1,13 @@
 [user]
-	name = Matt Butcher
-	email = technosophos@gmail.com
-	signingkey = 7D911B60
+  name = Matt Butcher
+  email = matt.butcher@microsoft.com
+  #email = mabutch@microsoft.com
+  signingkey = 7D911B60
 [color]
-    ui = true
+  ui = true
 [core]
-	editor = vim -f
+  editor = vim -f
+	excludesfile = /Users/technosophos/.gitignore_global
 [alias]
   lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%d'
   standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday --author mattbutcher
@@ -13,13 +15,17 @@
   ci = commit --verbose
   append = commit -av --amend --no-edit
   pullup = pull --rebase upstream master
+  pullme = pull --rebase my master
   prom = pull --rebase origin master
   delete-merged = "!git checkout master && git branch --merged | grep -v master | xargs git branch -d"
-  release-notes = "!git log --no-merges --pretty=format:'%s (%cr) <%an> %d'"
+  # release-notes = "!git log --no-merges --pretty=format:'%s (%cr) <%an> %d'"
+  release-notes = "!git log --no-merges --pretty=format:'- %s %H (%aN)' HEAD ^$1"
   pf = push --force-with-lease
+  oops = reset --soft HEAD~1
+  delete-my = "!$HOME/Code/evil-git-hacks/remove-my-remotes.pl"
 [merge]
-	conflictstyle = diff3
+  conflictstyle = diff3
 [commit]
-	gpgsign = true
+  gpgsign = true
 [ghi]
 	token = !security find-internet-password -a technosophos -s github.com -l 'ghi token' -w
