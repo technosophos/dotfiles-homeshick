@@ -7,7 +7,7 @@
   ui = true
 [core]
   editor = vim -f
-	excludesfile = /Users/technosophos/.gitignore_global
+  excludesfile = /Users/technosophos/.gitignore_global
 [alias]
   lg = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%d'
   standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday --author mattbutcher
@@ -16,6 +16,7 @@
   append = commit -av --amend --no-edit
   pullup = pull --rebase upstream master
   pullme = pull --rebase my master
+  pushup = push -u
   prom = pull --rebase origin master
   delete-merged = "!git checkout master && git branch --merged | grep -v master | xargs git branch -d"
   # release-notes = "!git log --no-merges --pretty=format:'%s (%cr) <%an> %d'"
@@ -28,4 +29,4 @@
 [commit]
   gpgsign = true
 [ghi]
-	token = !security find-internet-password -a technosophos -s github.com -l 'ghi token' -w
+  token = !security find-internet-password -a technosophos -s github.com -l 'ghi token' -w

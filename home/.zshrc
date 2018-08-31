@@ -170,7 +170,9 @@ alias netstatl='netstat -an | grep LISTEN'
 
 # kubectl shortcuts
 alias um='kubectl config use-context minikube && eval $(minikube docker-env)'
+alias use-mk='kubectl config use-context minikube && eval $(minikube docker-env)'
 alias use-bci='kubectl config use-context brigade-ci'
+alias use-dfm='kubectl config use docker-for-desktop'
 
 alias ot='osascript $CODE/firefox-open-tab.applescript'
 

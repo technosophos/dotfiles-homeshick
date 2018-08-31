@@ -1,4 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/technosophos/Code/Go/src/github.com/Azure/brigade/pkg'
 let g:netrw_dirhist_2='/Users/technosophos/Code/Go/src/github.com/Azure/brigade/pkg/api'
+let g:netrw_dirhist_3='/Users/technosophos/Code/Go/src/github.com/Azure/brigade'
+let g:netrw_dirhist_4='/Users/technosophos/Code/Go/src/k8s.io/helm'
+let g:netrw_dirhist_5='/Users/technosophos/Code/Go/src/k8s.io/helm/cmd'
+let g:netrw_dirhist_6='/Users/technosophos/Code/Go/src/k8s.io/helm/cmd/helm'
